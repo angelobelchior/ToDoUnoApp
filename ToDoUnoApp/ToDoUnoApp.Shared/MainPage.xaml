@@ -1,0 +1,45 @@
+﻿<Page
+    x:Class="ToDoUnoApp.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ToDoUnoApp"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:converter="using:ToDoUnoApp"
+    mc:Ignorable="d"    
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Page.Resources>
+        <converter:IsDoneConverter x:Key="IsDoneConverter" />
+    </Page.Resources>
+
+    <Grid Margin="50" ColumnSpacing="5" RowSpacing="5">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="50" />
+        </Grid.ColumnDefinitions>
+
+        <TextBox Grid.Column="0" Grid.Row="0" Text="{Binding Title, Mode=TwoWay}" PlaceholderText="To do item..." />
+        <Button Grid.Column="1" Grid.Row="0" Content="+" Command="{Binding AddToDoItemCommand}" />
+        <CheckBox Grid.Column="0" Grid.Row="1"  IsChecked="{Binding IsDone, Mode=TwoWay}">
+            <TextBlock Text="Is Done" />
+        </CheckBox>
+        <ListView Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2"  ItemsSource="{Binding Items}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <CheckBox Grid.Column="0" IsChecked="{Binding IsDone, Mode=TwoWay}" VerticalAlignment="Center">
+                        <TextBlock Text="{Binding Title}" 
+                                   VerticalAlignment="Center" 
+                                   TextDecorations="{Binding IsDone, Converter={StaticResource IsDoneConverter}, Mode=TwoWay}" />
+                    </CheckBox>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
+</Page>
