@@ -1,0 +1,7 @@
+{
+  "profiles": {
+	"UnoTodoApp.Windows (Package)": {
+	  "commandName": "MsixPackage"
+	}
+  }
+}

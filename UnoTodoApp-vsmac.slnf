@@ -1,0 +1,12 @@
+{
+  "solution": {
+    "path": "UnoTodoApp.sln",
+    "projects": [
+      "UnoTodoApp.Mobile\\UnoTodoApp.Mobile.csproj",
+      "UnoTodoApp.Skia.Gtk\\UnoTodoApp.Skia.Gtk.csproj",
+      "UnoTodoApp.UI\\UnoTodoApp.UI.shproj",
+      "UnoTodoApp.Wasm\\UnoTodoApp.Wasm.csproj",
+      "UnoTodoApp\\UnoTodoApp.csproj"
+    ]
+  }
+}
