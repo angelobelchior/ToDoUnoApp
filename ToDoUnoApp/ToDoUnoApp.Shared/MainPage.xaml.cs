@@ -60,7 +60,7 @@ public class ViewModel : NotifyPropertyChanged
 public class TodoItem : NotifyPropertyChanged
 {
     public Guid Id { get; set; }
-    
+
     private string _title;
     public string Title
     {
